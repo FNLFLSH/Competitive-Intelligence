@@ -1,0 +1,9 @@
+requests
+beautifulsoup4
+pandas
+supabase
+python-dotenv
+streamlit           # for internal dashboards
+notion-client       # for Notion weekly digest
+spacy               # for NLP keyword tagging
+openai              # for hype score / bullshit meter
