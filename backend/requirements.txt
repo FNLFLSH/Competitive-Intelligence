@@ -7,3 +7,10 @@ streamlit           # for internal dashboards
 notion-client       # for Notion weekly digest
 spacy               # for NLP keyword tagging
 openai              # for hype score / bullshit meter
+selenium==4.15.2
+webdriver-manager==4.0.1
+vaderSentiment==3.3.2
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+python-multipart
