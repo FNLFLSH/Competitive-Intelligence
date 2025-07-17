@@ -21,7 +21,7 @@ from pydantic import BaseModel
 import uvicorn
 
 # Import Playwright scrapers
-from playwright_scrapers import scrape_g2_production, scrape_glassdoor_production
+from capterra_scraper import scrape_capterra_production
 from production_scrapers import analyze_sentiment_production
 
 # Add parent dir to path for utils
@@ -45,13 +45,11 @@ def load_company_urls_from_csv() -> Dict[str, Dict[str, str]]:
             reader = csv.DictReader(file)
             for row in reader:
                 company_name = row.get('Company', '').strip()
-                g2_url = row.get('G2_URL', '').strip()
-                glassdoor_url = row.get('Glassdoor_URL', '').strip()
+                capterra_url = row.get('Capterra_URL', '').strip()
                 
                 if company_name:
                     companies[company_name] = {
-                        'g2_url': g2_url if g2_url else None,
-                        'glassdoor_url': glassdoor_url if glassdoor_url else None
+                        'capterra_url': capterra_url if capterra_url else None
                     }
         
         print(f"✅ Loaded {len(companies)} companies from CSV")
@@ -348,53 +346,26 @@ class IntegratedReviewScraper:
         else:
             return "neutral"
     
+    def scrape_capterra_reviews(self, company_name: str, capterra_url: str = None, max_reviews: int = 50) -> List[Dict]:
+        """Scrape Capterra reviews using Playwright scraper"""
+        from capterra_scraper import scrape_capterra_production
+        reviews = scrape_capterra_production(company_name, max_reviews, capterra_url)
+        # Optionally, run sentiment analysis here if not already done
+        for review in reviews:
+            sentiment = self.analyze_sentiment(review.get('content', ''))
+            review['sentiment_score'] = sentiment['compound']
+            review['sentiment_label'] = self._get_sentiment_label(sentiment['compound'])
+        return reviews
+    
     def scrape_g2_reviews(self, company_name: str, g2_url: str = None, max_reviews: int = 50) -> List[Dict]:
-        """Scrape G2 reviews for a company using production scraper with specific URL"""
-        try:
-            # Use production scraper with URL if provided
-            if g2_url:
-                print(f"🔍 Using provided G2 URL for {company_name}: {g2_url}")
-                reviews = scrape_g2_production(company_name, max_reviews, g2_url)
-            else:
-                print(f"🔍 No G2 URL provided for {company_name}, using search-based scraping")
-                reviews = scrape_g2_production(company_name, max_reviews)
-            
-            if reviews:
-                print(f"✅ Production G2 scraper found {len(reviews)} reviews for {company_name}")
-                # Analyze sentiment for all reviews
-                reviews = analyze_sentiment_production(reviews)
-            else:
-                print(f"⚠️ No G2 reviews found for {company_name}")
-            
-            return reviews
-            
-        except Exception as e:
-            print(f"❌ Error scraping G2 for {company_name}: {e}")
-            return []  # Return empty list instead of mock data
+        """Scrape G2 reviews for a company (deprecated - using Capterra only)"""
+        print(f"⚠️ G2 scraping deprecated for {company_name}, using Capterra only")
+        return []
     
     def scrape_glassdoor_reviews(self, company_name: str, glassdoor_url: str = None, max_reviews: int = 50) -> List[Dict]:
-        """Scrape Glassdoor reviews for a company using production scraper with specific URL"""
-        try:
-            # Use production scraper with URL if provided
-            if glassdoor_url:
-                print(f"🔍 Using provided Glassdoor URL for {company_name}: {glassdoor_url}")
-                reviews = scrape_glassdoor_production(company_name, max_reviews, glassdoor_url)
-            else:
-                print(f"🔍 No Glassdoor URL provided for {company_name}, using search-based scraping")
-                reviews = scrape_glassdoor_production(company_name, max_reviews)
-            
-            if reviews:
-                print(f"✅ Production Glassdoor scraper found {len(reviews)} reviews for {company_name}")
-                # Analyze sentiment for all reviews
-                reviews = analyze_sentiment_production(reviews)
-            else:
-                print(f"⚠️ No Glassdoor reviews found for {company_name}")
-            
-            return reviews
-            
-        except Exception as e:
-            print(f"❌ Error scraping Glassdoor for {company_name}: {e}")
-            return []  # Return empty list instead of mock data
+        """Scrape Glassdoor reviews for a company (deprecated - using Capterra only)"""
+        print(f"⚠️ Glassdoor scraping deprecated for {company_name}, using Capterra only")
+        return []
     
     def extract_review_data(self, review_element) -> Dict:
         """Extract review data from review element"""
@@ -504,40 +475,29 @@ async def live_scraping(request: ScrapingRequest):
             
             # Get URLs for this company from CSV
             company_data = company_urls.get(company, {})
-            g2_url = company_data.get('g2_url')
-            glassdoor_url = company_data.get('glassdoor_url')
+            capterra_url = company_data.get('capterra_url')
             
-            print(f"📋 URLs for {company}: G2={g2_url}, Glassdoor={glassdoor_url}")
+            print(f"📋 URLs for {company}: Capterra={capterra_url}")
             
             company_reviews = []
-            platform_stats = {"g2": {"reviews": 0, "avgSentiment": 0, "avgRating": 0}, 
-                            "glassdoor": {"reviews": 0, "avgSentiment": 0, "avgRating": 0}}
+            platform_stats = {"capterra": {"reviews": 0, "avgSentiment": 0, "avgRating": 0}}
             
-            # Scrape from both platforms using URLs from CSV
-            for source in ["g2", "glassdoor"]:
+            # Scrape from Capterra using URL from CSV
+            if capterra_url:
                 try:
-                    if source == "g2" and g2_url:
-                        reviews = scraper.scrape_g2_reviews(company, g2_url, 10)  # Use G2 URL from CSV
-                    elif source == "glassdoor" and glassdoor_url:
-                        reviews = scraper.scrape_glassdoor_reviews(company, glassdoor_url, 10)  # Use Glassdoor URL from CSV
-                    else:
-                        print(f"⚠️ No {source} URL found for {company}, skipping...")
-                        continue
-                    
+                    reviews = scraper.scrape_capterra_reviews(company, capterra_url, 10) # Use Capterra URL from CSV
                     if reviews:
                         company_reviews.extend(reviews)
-                        platform_stats[source]["reviews"] = len(reviews)
+                        platform_stats["capterra"]["reviews"] = len(reviews)
                         if reviews:
-                            platform_stats[source]["avgSentiment"] = sum(r.get('sentiment_score', 0) for r in reviews) / len(reviews)
-                            platform_stats[source]["avgRating"] = sum(r.get('rating', 0) for r in reviews) / len(reviews)
-                    
-                    # Delay between platforms
-                    time.sleep(2)
-                    
+                            platform_stats["capterra"]["avgSentiment"] = sum(r.get('sentiment_score', 0) for r in reviews) / len(reviews)
+                            platform_stats["capterra"]["avgRating"] = sum(r.get('rating', 0) for r in reviews) / len(reviews)
                 except Exception as e:
-                    error_msg = f"Error scraping {source} for {company}: {str(e)}"
+                    error_msg = f"Error scraping Capterra for {company}: {str(e)}"
                     print(f"❌ {error_msg}")
                     errors.append(error_msg)
+            else:
+                print(f"⚠️ No Capterra URL found for {company}, skipping...")
             
             if company_reviews:
                 all_reviews.extend(company_reviews)
@@ -566,7 +526,7 @@ async def live_scraping(request: ScrapingRequest):
         # Calculate final stats
         total_reviews = len(all_reviews)
         avg_sentiment = sum(r.get('sentiment_score', 0) for r in all_reviews) / total_reviews if total_reviews > 0 else 0
-        platform_breakdown = {"g2": 0, "glassdoor": 0}
+        platform_breakdown = {"capterra": 0}
         
         for review in all_reviews:
             source = review.get('source', 'unknown')
@@ -600,7 +560,7 @@ async def live_scraping(request: ScrapingRequest):
             success=False,
             totalReviews=0,
             companiesProcessed=0,
-            platformBreakdown={"g2": 0, "glassdoor": 0},
+            platformBreakdown={"capterra": 0},
             averageSentiment=0.0,
             storedInSupabase=False,
             storedCount=0,
@@ -772,39 +732,40 @@ async def run_scraping_task(companies: List[str], sources: List[str], max_review
             print(f"🔍 Scraping {company} ({i+1}/{len(companies)})")
             
             company_reviews = []
-            platform_stats = {"g2": {"reviews": 0, "avgSentiment": 0, "avgRating": 0}, 
-                            "glassdoor": {"reviews": 0, "avgSentiment": 0, "avgRating": 0}}
+            platform_stats = {"capterra": {"reviews": 0, "avgSentiment": 0, "avgRating": 0}}
             
-            for source in sources:
-                try:
-                    if source == "g2":
-                        reviews = scraper.scrape_g2_reviews(company, max_reviews)
-                    elif source == "glassdoor":
-                        reviews = scraper.scrape_glassdoor_reviews(company, max_reviews)
-                    else:
-                        continue
-                    
+            # Use Capterra scraper for all companies
+            try:
+                # Get Capterra URL from CSV
+                company_urls = load_company_urls_from_csv()
+                capterra_url = company_urls.get(company, {}).get('capterra_url')
+                
+                print(f"📋 Using Capterra URL for {company}: {capterra_url}")
+                
+                # Use the Capterra scraper
+                reviews = scraper.scrape_capterra_reviews(company, capterra_url, max_reviews)
+                
+                if reviews:
+                    company_reviews.extend(reviews)
+                    platform_stats["capterra"]["reviews"] = len(reviews)
                     if reviews:
-                        company_reviews.extend(reviews)
-                        platform_stats[source]["reviews"] = len(reviews)
-                        if reviews:
-                            platform_stats[source]["avgSentiment"] = sum(r.get('sentiment_compound', 0) for r in reviews) / len(reviews)
-                            platform_stats[source]["avgRating"] = sum(r.get('rating', 0) for r in reviews) / len(reviews)
-                    
-                    # Delay between platforms
-                    time.sleep(5)
-                    
-                except Exception as e:
-                    error_msg = f"Error scraping {source} for {company}: {str(e)}"
-                    print(f"❌ {error_msg}")
-                    errors.append(error_msg)
+                        platform_stats["capterra"]["avgSentiment"] = sum(r.get('sentiment_score', 0) for r in reviews) / len(reviews)
+                        platform_stats["capterra"]["avgRating"] = sum(r.get('rating', 0) for r in reviews) / len(reviews)
+                
+                # Delay between companies
+                time.sleep(3)
+                
+            except Exception as e:
+                error_msg = f"Error scraping Capterra for {company}: {str(e)}"
+                print(f"❌ {error_msg}")
+                errors.append(error_msg)
             
             if company_reviews:
                 all_reviews.extend(company_reviews)
                 
                 # Calculate company stats
                 total_reviews = len(company_reviews)
-                avg_sentiment = sum(r.get('sentiment_compound', 0) for r in company_reviews) / total_reviews
+                avg_sentiment = sum(r.get('sentiment_score', 0) for r in company_reviews) / total_reviews
                 avg_rating = sum(r.get('rating', 0) for r in company_reviews) / total_reviews
                 
                 company_result = CompanyResult(
@@ -829,8 +790,8 @@ async def run_scraping_task(companies: List[str], sources: List[str], max_review
         
         # Calculate final stats
         total_reviews = len(all_reviews)
-        avg_sentiment = sum(r.get('sentiment_compound', 0) for r in all_reviews) / total_reviews if total_reviews > 0 else 0
-        platform_breakdown = {"g2": 0, "glassdoor": 0}
+        avg_sentiment = sum(r.get('sentiment_score', 0) for r in all_reviews) / total_reviews if total_reviews > 0 else 0
+        platform_breakdown = {"capterra": 0}
         
         for review in all_reviews:
             source = review.get('source', 'unknown')
