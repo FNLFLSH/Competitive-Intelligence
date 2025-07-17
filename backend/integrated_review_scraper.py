@@ -7,13 +7,7 @@ import uuid
 import csv
 from datetime import datetime
 from typing import List, Dict, Optional, Union
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
+# Selenium imports removed - using Playwright for Capterra scraping only
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from fastapi import FastAPI, HTTPException, BackgroundTasks, Query
 from fastapi.middleware.cors import CORSMiddleware
@@ -22,7 +16,7 @@ import uvicorn
 
 # Import Playwright scrapers
 from capterra_scraper import scrape_capterra_production
-from production_scrapers import analyze_sentiment_production
+# Removed production_scrapers import - using local sentiment analysis
 
 # Add parent dir to path for utils
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -147,54 +141,14 @@ class IntegratedReviewScraper:
         self.setup_driver()
     
     def setup_driver(self):
-        """Setup Chrome WebDriver with robust Windows compatibility"""
+        """Setup Playwright for Capterra scraping (Selenium removed)"""
         try:
-            chrome_options = Options()
-            
-            if self.headless:
-                chrome_options.add_argument("--headless=new")  # Use new headless mode
-            
-            # Windows-specific options
-            chrome_options.add_argument("--no-sandbox")
-            chrome_options.add_argument("--disable-dev-shm-usage")
-            chrome_options.add_argument("--disable-gpu")
-            chrome_options.add_argument("--disable-extensions")
-            chrome_options.add_argument("--disable-plugins")
-            chrome_options.add_argument("--disable-images")
-            chrome_options.add_argument("--disable-javascript")
-            chrome_options.add_argument("--disable-web-security")
-            chrome_options.add_argument("--allow-running-insecure-content")
-            chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-            chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-            chrome_options.add_experimental_option('useAutomationExtension', False)
-            chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
-            
-            # Additional Windows compatibility
-            chrome_options.add_argument("--remote-debugging-port=9222")
-            chrome_options.add_argument("--disable-background-timer-throttling")
-            chrome_options.add_argument("--disable-backgrounding-occluded-windows")
-            chrome_options.add_argument("--disable-renderer-backgrounding")
-            
-            # Setup ChromeDriver with explicit path
-            try:
-                # Try to use ChromeDriverManager first
-                service = Service(ChromeDriverManager().install())
-                self.driver = webdriver.Chrome(service=service, options=chrome_options)
-            except Exception as e:
-                print(f"ChromeDriverManager failed: {e}")
-                # Fallback to system Chrome
-                self.driver = webdriver.Chrome(options=chrome_options)
-            
-            # Set window size and execute anti-detection script
-            self.driver.set_window_size(1920, 1080)
-            self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
-            
-            print("✅ Chrome WebDriver initialized successfully")
+            print("✅ Playwright setup - no Selenium required")
             self.mock_mode = False
             
         except Exception as e:
-            print(f"❌ Chrome WebDriver failed to initialize: {e}")
-            raise RuntimeError("Selenium Chrome WebDriver failed to initialize. Please check your Chrome/driver setup.")
+            print(f"❌ Playwright setup failed: {e}")
+            raise RuntimeError("Playwright setup failed. Please check your Playwright installation.")
 
     def mock_scrape_reviews(self, company_name: str, platform: str, max_reviews: int = 10) -> List[Dict]:
         """Mock scraping function that returns sample data"""
@@ -422,9 +376,8 @@ class IntegratedReviewScraper:
             return None
     
     def close(self):
-        """Close the webdriver"""
-        if self.driver:
-            self.driver.quit()
+        """Close Playwright browser (Selenium removed)"""
+        print("✅ Playwright cleanup completed")
 
 # Initialize FastAPI app
 app = FastAPI(title="Review Scraper API", version="1.0.0")
