@@ -7,8 +7,7 @@ streamlit           # for internal dashboards
 notion-client       # for Notion weekly digest
 spacy               # for NLP keyword tagging
 openai              # for hype score / bullshit meter
-selenium==4.15.2
-webdriver-manager==4.0.1
+playwright          # for Capterra scraping
 vaderSentiment==3.3.2
 fastapi==0.104.1
 uvicorn==0.24.0

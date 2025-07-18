@@ -52,23 +52,23 @@ def scrape_g2_production(company_name: str, max_reviews: int = 25, g2_url: str =
         ]
     else:
         # Fallback strategies
-        strategies = [
-            {
-                "name": "Direct Product Page",
-                "url": f"https://www.g2.com/products/{company_name.lower().replace(' ', '-')}/reviews",
-                "selectors": [".paper.paper--neutral.p-lg.mb-0", "[data-testid='review-card']", ".review-card", ".review"]
-            },
-            {
-                "name": "Search Results",
-                "url": f"https://www.g2.com/search?query={company_name.replace(' ', '+')}",
-                "selectors": [".paper.paper--neutral.p-lg.mb-0", "[data-testid='review-card']", ".review-card", ".review"]
-            },
-            {
-                "name": "Category Search",
-                "url": f"https://www.g2.com/categories/{company_name.lower().replace(' ', '-')}",
-                "selectors": [".paper.paper--neutral.p-lg.mb-0", "[data-testid='review-card']", ".review-card", ".review"]
-            }
-        ]
+    strategies = [
+        {
+            "name": "Direct Product Page",
+            "url": f"https://www.g2.com/products/{company_name.lower().replace(' ', '-')}/reviews",
+            "selectors": [".paper.paper--neutral.p-lg.mb-0", "[data-testid='review-card']", ".review-card", ".review"]
+        },
+        {
+            "name": "Search Results",
+            "url": f"https://www.g2.com/search?query={company_name.replace(' ', '+')}",
+            "selectors": [".paper.paper--neutral.p-lg.mb-0", "[data-testid='review-card']", ".review-card", ".review"]
+        },
+        {
+            "name": "Category Search",
+            "url": f"https://www.g2.com/categories/{company_name.lower().replace(' ', '-')}",
+            "selectors": [".paper.paper--neutral.p-lg.mb-0", "[data-testid='review-card']", ".review-card", ".review"]
+        }
+    ]
     
     for strategy in strategies:
         if len(reviews) >= max_reviews:
@@ -219,23 +219,23 @@ def scrape_glassdoor_production(company_name: str, max_reviews: int = 25, glassd
         ]
     else:
         # Fallback strategies
-        strategies = [
-            {
-                "name": "Direct Company Page",
-                "url": f"https://www.glassdoor.com/Overview/{company_name.replace(' ', '-')}.htm",
-                "selectors": [".gdReview", "[data-testid='review']", ".review", ".reviewCard"]
-            },
-            {
-                "name": "Search Results",
-                "url": f"https://www.glassdoor.com/Search/results.htm?keyword={company_name.replace(' ', '%20')}",
-                "selectors": [".gdReview", "[data-testid='review']", ".review", ".reviewCard"]
-            },
-            {
-                "name": "Reviews Page",
-                "url": f"https://www.glassdoor.com/Reviews/{company_name.replace(' ', '-')}-reviews-SRCH_KE0,{len(company_name)}.htm",
-                "selectors": [".gdReview", "[data-testid='review']", ".review", ".reviewCard"]
-            }
-        ]
+    strategies = [
+        {
+            "name": "Direct Company Page",
+            "url": f"https://www.glassdoor.com/Overview/{company_name.replace(' ', '-')}.htm",
+            "selectors": [".gdReview", "[data-testid='review']", ".review", ".reviewCard"]
+        },
+        {
+            "name": "Search Results",
+            "url": f"https://www.glassdoor.com/Search/results.htm?keyword={company_name.replace(' ', '%20')}",
+            "selectors": [".gdReview", "[data-testid='review']", ".review", ".reviewCard"]
+        },
+        {
+            "name": "Reviews Page",
+            "url": f"https://www.glassdoor.com/Reviews/{company_name.replace(' ', '-')}-reviews-SRCH_KE0,{len(company_name)}.htm",
+            "selectors": [".gdReview", "[data-testid='review']", ".review", ".reviewCard"]
+        }
+    ]
     
     for strategy in strategies:
         if len(reviews) >= max_reviews:
