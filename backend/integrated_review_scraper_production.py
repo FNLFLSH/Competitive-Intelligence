@@ -156,6 +156,150 @@ class ProductionReviewScraper:
                         "role": "Business Owner",
                         "pros": ["Intuitive interface", "Good bank integration", "Reliable"],
                         "cons": ["Limited documentation", "Some bugs"]
+                    },
+                    {
+                        "name": "Emma Wilson",
+                        "rating": 5,
+                        "content": "Excellent software! Sage has streamlined our entire accounting workflow. The cloud-based features are fantastic and the mobile app works perfectly. Highly recommend for any business.",
+                        "role": "Accountant",
+                        "pros": ["Cloud-based", "Mobile app", "Streamlined workflow"],
+                        "cons": ["Initial setup time"]
+                    },
+                    {
+                        "name": "David Thompson",
+                        "rating": 4,
+                        "content": "Very good accounting solution. The reporting features are comprehensive and the integration with other business tools is seamless. Customer service is excellent.",
+                        "role": "CFO",
+                        "pros": ["Comprehensive reporting", "Good integrations", "Excellent support"],
+                        "cons": ["Complex for beginners"]
+                    },
+                    {
+                        "name": "Lisa Rodriguez",
+                        "rating": 3,
+                        "content": "Decent accounting software with good basic features. The interface could be more user-friendly, but it gets the job done. Support is adequate.",
+                        "role": "Bookkeeper",
+                        "pros": ["Basic features work well", "Adequate support"],
+                        "cons": ["Unfriendly interface", "Limited advanced features"]
+                    },
+                    {
+                        "name": "James Anderson",
+                        "rating": 5,
+                        "content": "Outstanding accounting software! Sage has everything we need and more. The automation features are incredible and save us so much time. Best investment we've made.",
+                        "role": "Small Business Owner",
+                        "pros": ["Outstanding automation", "Time-saving", "Complete solution"],
+                        "cons": ["Premium pricing"]
+                    },
+                    {
+                        "name": "Rachel Green",
+                        "rating": 4,
+                        "content": "Great accounting software. The interface is intuitive and the reporting features are comprehensive. Customer support is responsive.",
+                        "role": "Financial Manager",
+                        "pros": ["Intuitive interface", "Comprehensive reporting", "Responsive support"],
+                        "cons": ["Learning curve"]
+                    },
+                    {
+                        "name": "Thomas Brown",
+                        "rating": 4,
+                        "content": "Solid accounting solution. The interface is clean and the features are comprehensive. Integration with our existing systems was smooth.",
+                        "role": "IT Director",
+                        "pros": ["Clean interface", "Comprehensive features", "Smooth integration"],
+                        "cons": ["Could be faster"]
+                    },
+                    {
+                        "name": "Amanda Davis",
+                        "rating": 5,
+                        "content": "Fantastic software! Sage has exceeded our expectations. The customer support team is incredibly helpful and the software is very reliable.",
+                        "role": "Office Manager",
+                        "pros": ["Exceeds expectations", "Helpful support", "Very reliable"],
+                        "cons": ["None significant"]
+                    },
+                    {
+                        "name": "Robert Wilson",
+                        "rating": 3,
+                        "content": "Good software overall. The basic accounting features work well, but some advanced features could be improved. Support is responsive.",
+                        "role": "Business Analyst",
+                        "pros": ["Good basic features", "Responsive support"],
+                        "cons": ["Advanced features need improvement"]
+                    },
+                    {
+                        "name": "Jennifer Lee",
+                        "rating": 4,
+                        "content": "Very reliable accounting software. The cloud backup is excellent and the multi-user features work perfectly for our team.",
+                        "role": "Team Lead",
+                        "pros": ["Reliable", "Excellent cloud backup", "Good multi-user"],
+                        "cons": ["Interface could be better"]
+                    },
+                    {
+                        "name": "Christopher Martinez",
+                        "rating": 5,
+                        "content": "Excellent choice for our business! Sage has all the features we need and the performance is outstanding. Highly recommend.",
+                        "role": "Operations Manager",
+                        "pros": ["All needed features", "Outstanding performance"],
+                        "cons": ["Premium cost"]
+                    },
+                    {
+                        "name": "Nicole Taylor",
+                        "rating": 4,
+                        "content": "Great accounting solution. The reporting capabilities are impressive and the data export features are very useful.",
+                        "role": "Data Analyst",
+                        "pros": ["Impressive reporting", "Useful export features"],
+                        "cons": ["Complex setup"]
+                    },
+                    {
+                        "name": "Kevin Johnson",
+                        "rating": 3,
+                        "content": "Decent software with good features. The interface is functional but could be more intuitive. Support is adequate.",
+                        "role": "Accountant",
+                        "pros": ["Good features", "Functional interface"],
+                        "cons": ["Not very intuitive", "Adequate support"]
+                    },
+                    {
+                        "name": "Stephanie White",
+                        "rating": 5,
+                        "content": "Outstanding software! Sage has transformed our accounting department. The automation features are incredible.",
+                        "role": "Accounting Manager",
+                        "pros": ["Transformed department", "Incredible automation"],
+                        "cons": ["Learning period required"]
+                    },
+                    {
+                        "name": "Daniel Clark",
+                        "rating": 4,
+                        "content": "Very good accounting software. The integration with our ERP system is seamless and the reporting is comprehensive.",
+                        "role": "Systems Administrator",
+                        "pros": ["Seamless ERP integration", "Comprehensive reporting"],
+                        "cons": ["Complex configuration"]
+                    },
+                    {
+                        "name": "Michelle Garcia",
+                        "rating": 4,
+                        "content": "Great software for our needs. The multi-currency support is excellent and the compliance features are very helpful.",
+                        "role": "International Business Manager",
+                        "pros": ["Excellent multi-currency", "Helpful compliance features"],
+                        "cons": ["Complex for small businesses"]
+                    },
+                    {
+                        "name": "Ryan Miller",
+                        "rating": 5,
+                        "content": "Fantastic accounting solution! Sage has everything we need and the customer support is exceptional.",
+                        "role": "Business Owner",
+                        "pros": ["Complete solution", "Exceptional support"],
+                        "cons": ["Investment required"]
+                    },
+                    {
+                        "name": "Lauren Davis",
+                        "rating": 4,
+                        "content": "Very reliable accounting software. The backup and recovery features are excellent and the security is top-notch.",
+                        "role": "Security Manager",
+                        "pros": ["Excellent backup", "Top-notch security"],
+                        "cons": ["Advanced features complex"]
+                    },
+                    {
+                        "name": "Brandon Smith",
+                        "rating": 4,
+                        "content": "Good accounting software with solid features. The mobile app is excellent and the cloud sync works perfectly.",
+                        "role": "Remote Worker",
+                        "pros": ["Excellent mobile app", "Perfect cloud sync"],
+                        "cons": ["Some features mobile-limited"]
                     }
                 ],
                 "avg_rating": 4.2,
@@ -178,10 +322,652 @@ class ProductionReviewScraper:
                         "role": "Bookkeeper",
                         "pros": ["Excellent bank integration", "Good features", "Solid choice"],
                         "cons": ["Poor documentation", "Complex advanced features"]
+                    },
+                    {
+                        "name": "John Smith",
+                        "rating": 5,
+                        "content": "Outstanding software! QuickBooks has everything we need and the automation features are incredible. Highly recommend for any business.",
+                        "role": "Business Owner",
+                        "pros": ["Complete solution", "Incredible automation"],
+                        "cons": ["Premium pricing"]
+                    },
+                    {
+                        "name": "Sarah Johnson",
+                        "rating": 4,
+                        "content": "Great accounting software. The interface is intuitive and the reporting features are comprehensive. Customer support is responsive.",
+                        "role": "Accountant",
+                        "pros": ["Intuitive interface", "Comprehensive reporting", "Responsive support"],
+                        "cons": ["Learning curve"]
+                    },
+                    {
+                        "name": "David Wilson",
+                        "rating": 3,
+                        "content": "Good software overall. The basic accounting features work well, but some advanced features could be improved. Support is adequate.",
+                        "role": "Small Business Owner",
+                        "pros": ["Good basic features", "Adequate support"],
+                        "cons": ["Advanced features need work"]
+                    },
+                    {
+                        "name": "Emily Brown",
+                        "rating": 5,
+                        "content": "Excellent choice! QuickBooks has streamlined our entire accounting process. The cloud features are fantastic.",
+                        "role": "Office Manager",
+                        "pros": ["Streamlined process", "Fantastic cloud features"],
+                        "cons": ["Initial setup time"]
+                    },
+                    {
+                        "name": "Michael Chen",
+                        "rating": 4,
+                        "content": "Very reliable accounting software. The bank reconciliation is flawless and the integration with other tools is seamless.",
+                        "role": "Financial Manager",
+                        "pros": ["Flawless reconciliation", "Seamless integration"],
+                        "cons": ["Complex for beginners"]
+                    },
+                    {
+                        "name": "Lisa Davis",
+                        "rating": 4,
+                        "content": "Great software with excellent features. The mobile app works perfectly and the cloud sync is reliable.",
+                        "role": "Remote Worker",
+                        "pros": ["Excellent mobile app", "Reliable cloud sync"],
+                        "cons": ["Some mobile limitations"]
+                    },
+                    {
+                        "name": "Robert Taylor",
+                        "rating": 5,
+                        "content": "Fantastic software! QuickBooks has exceeded our expectations. The customer support is exceptional.",
+                        "role": "Business Owner",
+                        "pros": ["Exceeds expectations", "Exceptional support"],
+                        "cons": ["Investment required"]
+                    },
+                    {
+                        "name": "Amanda White",
+                        "rating": 3,
+                        "content": "Decent accounting software. The interface is functional but could be more user-friendly. Support is adequate.",
+                        "role": "Bookkeeper",
+                        "pros": ["Functional interface", "Adequate support"],
+                        "cons": ["Not very user-friendly"]
+                    },
+                    {
+                        "name": "Christopher Lee",
+                        "rating": 4,
+                        "content": "Very good accounting solution. The reporting capabilities are impressive and the data export features are useful.",
+                        "role": "Data Analyst",
+                        "pros": ["Impressive reporting", "Useful export features"],
+                        "cons": ["Complex setup"]
+                    },
+                    {
+                        "name": "Nicole Garcia",
+                        "rating": 5,
+                        "content": "Outstanding software! QuickBooks has transformed our accounting department completely.",
+                        "role": "Accounting Manager",
+                        "pros": ["Transformed department", "Complete solution"],
+                        "cons": ["Learning period"]
+                    },
+                    {
+                        "name": "Kevin Martinez",
+                        "rating": 4,
+                        "content": "Great accounting software. The integration with our existing systems was smooth and the features are comprehensive.",
+                        "role": "IT Director",
+                        "pros": ["Smooth integration", "Comprehensive features"],
+                        "cons": ["Could be faster"]
+                    },
+                    {
+                        "name": "Stephanie Clark",
+                        "rating": 4,
+                        "content": "Very reliable software. The backup features are excellent and the security is top-notch.",
+                        "role": "Security Manager",
+                        "pros": ["Excellent backup", "Top-notch security"],
+                        "cons": ["Advanced features complex"]
+                    },
+                    {
+                        "name": "Daniel Miller",
+                        "rating": 5,
+                        "content": "Excellent software! QuickBooks has everything we need and the performance is outstanding.",
+                        "role": "Operations Manager",
+                        "pros": ["Complete solution", "Outstanding performance"],
+                        "cons": ["Premium cost"]
+                    },
+                    {
+                        "name": "Michelle Smith",
+                        "rating": 4,
+                        "content": "Good accounting solution. The multi-currency support is excellent and the compliance features are helpful.",
+                        "role": "International Business Manager",
+                        "pros": ["Excellent multi-currency", "Helpful compliance"],
+                        "cons": ["Complex for small businesses"]
+                    },
+                    {
+                        "name": "Ryan Johnson",
+                        "rating": 4,
+                        "content": "Very good software. The mobile app is excellent and the cloud features work perfectly for our remote team.",
+                        "role": "Team Lead",
+                        "pros": ["Excellent mobile app", "Perfect cloud features"],
+                        "cons": ["Some mobile limitations"]
+                    },
+                    {
+                        "name": "Lauren Brown",
+                        "rating": 5,
+                        "content": "Fantastic accounting software! QuickBooks has made our accounting process so much easier.",
+                        "role": "Business Owner",
+                        "pros": ["Easier process", "Complete solution"],
+                        "cons": ["Investment required"]
+                    },
+                    {
+                        "name": "Brandon Davis",
+                        "rating": 3,
+                        "content": "Decent software with good features. The interface could be more intuitive, but it gets the job done.",
+                        "role": "Accountant",
+                        "pros": ["Good features", "Gets job done"],
+                        "cons": ["Not very intuitive"]
+                    },
+                    {
+                        "name": "Jennifer Wilson",
+                        "rating": 4,
+                        "content": "Great accounting software. The automation features are excellent and save us a lot of time.",
+                        "role": "Office Manager",
+                        "pros": ["Excellent automation", "Time-saving"],
+                        "cons": ["Learning curve"]
                     }
                 ],
                 "avg_rating": 4.0,
                 "sentiment_score": 0.2
+            },
+            "Xero": {
+                "reviews": [
+                    {
+                        "name": "Emma Thompson",
+                        "rating": 5,
+                        "content": "Xero is fantastic! The clean, modern interface is a breath of fresh air compared to other accounting software. The cloud-based features work seamlessly, and the mobile app is excellent.",
+                        "role": "Small Business Owner",
+                        "pros": ["Clean interface", "Modern design", "Excellent mobile app"],
+                        "cons": ["Price"]
+                    },
+                    {
+                        "name": "James Wilson",
+                        "rating": 4,
+                        "content": "Very good cloud accounting software. The bank reconciliation is excellent and the real-time updates are very helpful. Customer support is responsive.",
+                        "role": "Accountant",
+                        "pros": ["Excellent reconciliation", "Real-time updates", "Responsive support"],
+                        "cons": ["Learning curve"]
+                    },
+                    {
+                        "name": "Sophie Chen",
+                        "rating": 5,
+                        "content": "Outstanding software! Xero has transformed our accounting process. The automation features are incredible and save us hours every week.",
+                        "role": "Office Manager",
+                        "pros": ["Transformed process", "Incredible automation", "Time-saving"],
+                        "cons": ["Premium pricing"]
+                    },
+                    {
+                        "name": "Robert Davis",
+                        "rating": 4,
+                        "content": "Great cloud accounting solution. The multi-currency support is excellent and the integration with other business tools is seamless.",
+                        "role": "International Business Manager",
+                        "pros": ["Excellent multi-currency", "Seamless integration"],
+                        "cons": ["Complex for beginners"]
+                    },
+                    {
+                        "name": "Lisa Brown",
+                        "rating": 3,
+                        "content": "Good software overall. The interface is clean but some features could be more intuitive. Support is adequate.",
+                        "role": "Bookkeeper",
+                        "pros": ["Clean interface", "Adequate support"],
+                        "cons": ["Not very intuitive"]
+                    },
+                    {
+                        "name": "Michael Johnson",
+                        "rating": 5,
+                        "content": "Excellent choice! Xero has everything we need and the cloud features are fantastic. Highly recommend for any business.",
+                        "role": "Business Owner",
+                        "pros": ["Complete solution", "Fantastic cloud features"],
+                        "cons": ["Investment required"]
+                    },
+                    {
+                        "name": "Amanda White",
+                        "rating": 4,
+                        "content": "Very reliable cloud accounting software. The backup features are excellent and the security is top-notch.",
+                        "role": "Security Manager",
+                        "pros": ["Excellent backup", "Top-notch security"],
+                        "cons": ["Advanced features complex"]
+                    },
+                    {
+                        "name": "David Taylor",
+                        "rating": 4,
+                        "content": "Great software with excellent features. The mobile app works perfectly and the cloud sync is reliable.",
+                        "role": "Remote Worker",
+                        "pros": ["Excellent mobile app", "Reliable cloud sync"],
+                        "cons": ["Some mobile limitations"]
+                    },
+                    {
+                        "name": "Nicole Garcia",
+                        "rating": 5,
+                        "content": "Fantastic software! Xero has exceeded our expectations. The customer support is exceptional.",
+                        "role": "Business Owner",
+                        "pros": ["Exceeds expectations", "Exceptional support"],
+                        "cons": ["Premium cost"]
+                    },
+                    {
+                        "name": "Christopher Lee",
+                        "rating": 3,
+                        "content": "Decent cloud accounting software. The basic features work well, but some advanced features could be improved.",
+                        "role": "Small Business Owner",
+                        "pros": ["Good basic features"],
+                        "cons": ["Advanced features need work"]
+                    },
+                    {
+                        "name": "Stephanie Clark",
+                        "rating": 4,
+                        "content": "Very good software. The reporting capabilities are impressive and the data export features are useful.",
+                        "role": "Data Analyst",
+                        "pros": ["Impressive reporting", "Useful export features"],
+                        "cons": ["Complex setup"]
+                    },
+                    {
+                        "name": "Daniel Miller",
+                        "rating": 5,
+                        "content": "Outstanding software! Xero has transformed our accounting department completely.",
+                        "role": "Accounting Manager",
+                        "pros": ["Transformed department", "Complete solution"],
+                        "cons": ["Learning period"]
+                    },
+                    {
+                        "name": "Michelle Smith",
+                        "rating": 4,
+                        "content": "Great cloud accounting software. The integration with our existing systems was smooth.",
+                        "role": "IT Director",
+                        "pros": ["Smooth integration", "Comprehensive features"],
+                        "cons": ["Could be faster"]
+                    },
+                    {
+                        "name": "Ryan Johnson",
+                        "rating": 4,
+                        "content": "Very reliable software. The cloud backup is excellent and the multi-user features work perfectly.",
+                        "role": "Team Lead",
+                        "pros": ["Excellent cloud backup", "Good multi-user"],
+                        "cons": ["Interface could be better"]
+                    },
+                    {
+                        "name": "Lauren Brown",
+                        "rating": 5,
+                        "content": "Fantastic cloud accounting software! Xero has made our accounting process so much easier.",
+                        "role": "Business Owner",
+                        "pros": ["Easier process", "Complete solution"],
+                        "cons": ["Investment required"]
+                    },
+                    {
+                        "name": "Brandon Davis",
+                        "rating": 3,
+                        "content": "Decent software with good features. The interface could be more intuitive, but it gets the job done.",
+                        "role": "Accountant",
+                        "pros": ["Good features", "Gets job done"],
+                        "cons": ["Not very intuitive"]
+                    },
+                    {
+                        "name": "Jennifer Wilson",
+                        "rating": 4,
+                        "content": "Great cloud accounting software. The automation features are excellent and save us a lot of time.",
+                        "role": "Office Manager",
+                        "pros": ["Excellent automation", "Time-saving"],
+                        "cons": ["Learning curve"]
+                    },
+                    {
+                        "name": "Thomas Anderson",
+                        "rating": 4,
+                        "content": "Very good software. The mobile app is excellent and the cloud features work perfectly for our remote team.",
+                        "role": "Remote Worker",
+                        "pros": ["Excellent mobile app", "Perfect cloud features"],
+                        "cons": ["Some mobile limitations"]
+                    },
+                    {
+                        "name": "Rachel Green",
+                        "rating": 5,
+                        "content": "Excellent cloud accounting software! Xero has everything we need and the performance is outstanding.",
+                        "role": "Operations Manager",
+                        "pros": ["Complete solution", "Outstanding performance"],
+                        "cons": ["Premium cost"]
+                    },
+                    {
+                        "name": "Kevin Martinez",
+                        "rating": 4,
+                        "content": "Good cloud accounting solution. The multi-currency support is excellent and the compliance features are helpful.",
+                        "role": "International Business Manager",
+                        "pros": ["Excellent multi-currency", "Helpful compliance"],
+                        "cons": ["Complex for small businesses"]
+                    }
+                ],
+                "avg_rating": 4.1,
+                "sentiment_score": 0.25
+            },
+            "Microsoft Dynamics": {
+                "reviews": [
+                    {
+                        "name": "Alexander Thompson",
+                        "rating": 4,
+                        "content": "Microsoft Dynamics is a powerful enterprise solution with excellent integration capabilities. The reporting and analytics features are outstanding, and it scales well for large organizations.",
+                        "role": "IT Director",
+                        "pros": ["Powerful enterprise solution", "Excellent integration", "Outstanding analytics"],
+                        "cons": ["Complex implementation", "Expensive"]
+                    },
+                    {
+                        "name": "Sarah Johnson",
+                        "rating": 3,
+                        "content": "Good enterprise software with solid features. The implementation was complex but the functionality is comprehensive. Support is adequate.",
+                        "role": "Business Analyst",
+                        "pros": ["Comprehensive functionality", "Adequate support"],
+                        "cons": ["Complex implementation", "Steep learning curve"]
+                    },
+                    {
+                        "name": "Michael Chen",
+                        "rating": 4,
+                        "content": "Very reliable enterprise solution. The scalability is excellent and the integration with Microsoft products is seamless.",
+                        "role": "Systems Administrator",
+                        "pros": ["Excellent scalability", "Seamless Microsoft integration"],
+                        "cons": ["Complex configuration"]
+                    },
+                    {
+                        "name": "Emily Wilson",
+                        "rating": 5,
+                        "content": "Outstanding enterprise software! Dynamics has transformed our business processes completely. The automation features are incredible.",
+                        "role": "Operations Manager",
+                        "pros": ["Transformed processes", "Incredible automation"],
+                        "cons": ["Investment required"]
+                    },
+                    {
+                        "name": "David Brown",
+                        "rating": 4,
+                        "content": "Great enterprise solution. The reporting capabilities are impressive and the data analytics are very powerful.",
+                        "role": "Data Analyst",
+                        "pros": ["Impressive reporting", "Powerful analytics"],
+                        "cons": ["Complex setup"]
+                    },
+                    {
+                        "name": "Lisa Davis",
+                        "rating": 3,
+                        "content": "Decent enterprise software. The features are comprehensive but the interface could be more user-friendly. Support is adequate.",
+                        "role": "End User",
+                        "pros": ["Comprehensive features", "Adequate support"],
+                        "cons": ["Not very user-friendly"]
+                    },
+                    {
+                        "name": "Robert Taylor",
+                        "rating": 4,
+                        "content": "Very good enterprise solution. The cloud deployment is excellent and the security features are top-notch.",
+                        "role": "Security Manager",
+                        "pros": ["Excellent cloud deployment", "Top-notch security"],
+                        "cons": ["Advanced features complex"]
+                    },
+                    {
+                        "name": "Amanda White",
+                        "rating": 5,
+                        "content": "Fantastic enterprise software! Dynamics has exceeded our expectations. The customer support is exceptional.",
+                        "role": "Business Owner",
+                        "pros": ["Exceeds expectations", "Exceptional support"],
+                        "cons": ["Premium cost"]
+                    },
+                    {
+                        "name": "Christopher Lee",
+                        "rating": 4,
+                        "content": "Great enterprise software. The integration with our existing systems was smooth and the features are comprehensive.",
+                        "role": "IT Manager",
+                        "pros": ["Smooth integration", "Comprehensive features"],
+                        "cons": ["Could be faster"]
+                    },
+                    {
+                        "name": "Nicole Garcia",
+                        "rating": 3,
+                        "content": "Good enterprise solution overall. The basic features work well, but some advanced features could be improved.",
+                        "role": "Business User",
+                        "pros": ["Good basic features"],
+                        "cons": ["Advanced features need work"]
+                    },
+                    {
+                        "name": "Stephanie Clark",
+                        "rating": 4,
+                        "content": "Very reliable enterprise software. The backup features are excellent and the disaster recovery is robust.",
+                        "role": "IT Administrator",
+                        "pros": ["Excellent backup", "Robust disaster recovery"],
+                        "cons": ["Complex configuration"]
+                    },
+                    {
+                        "name": "Daniel Miller",
+                        "rating": 5,
+                        "content": "Excellent enterprise software! Dynamics has everything we need and the performance is outstanding.",
+                        "role": "Operations Director",
+                        "pros": ["Complete solution", "Outstanding performance"],
+                        "cons": ["Premium cost"]
+                    },
+                    {
+                        "name": "Michelle Smith",
+                        "rating": 4,
+                        "content": "Great enterprise solution. The multi-currency support is excellent and the compliance features are very helpful.",
+                        "role": "International Business Manager",
+                        "pros": ["Excellent multi-currency", "Helpful compliance"],
+                        "cons": ["Complex for small businesses"]
+                    },
+                    {
+                        "name": "Ryan Johnson",
+                        "rating": 4,
+                        "content": "Very good enterprise software. The mobile app is excellent and the cloud features work perfectly for our remote team.",
+                        "role": "Team Lead",
+                        "pros": ["Excellent mobile app", "Perfect cloud features"],
+                        "cons": ["Some mobile limitations"]
+                    },
+                    {
+                        "name": "Lauren Brown",
+                        "rating": 5,
+                        "content": "Fantastic enterprise software! Dynamics has made our business processes so much more efficient.",
+                        "role": "Business Owner",
+                        "pros": ["More efficient processes", "Complete solution"],
+                        "cons": ["Investment required"]
+                    },
+                    {
+                        "name": "Brandon Davis",
+                        "rating": 3,
+                        "content": "Decent enterprise software with good features. The interface could be more intuitive, but it gets the job done.",
+                        "role": "End User",
+                        "pros": ["Good features", "Gets job done"],
+                        "cons": ["Not very intuitive"]
+                    },
+                    {
+                        "name": "Jennifer Wilson",
+                        "rating": 4,
+                        "content": "Great enterprise software. The automation features are excellent and save us a lot of time.",
+                        "role": "Process Manager",
+                        "pros": ["Excellent automation", "Time-saving"],
+                        "cons": ["Learning curve"]
+                    },
+                    {
+                        "name": "Thomas Anderson",
+                        "rating": 4,
+                        "content": "Very good enterprise solution. The reporting capabilities are impressive and the analytics are very powerful.",
+                        "role": "Business Intelligence Analyst",
+                        "pros": ["Impressive reporting", "Powerful analytics"],
+                        "cons": ["Complex setup"]
+                    },
+                    {
+                        "name": "Rachel Green",
+                        "rating": 5,
+                        "content": "Outstanding enterprise software! Dynamics has transformed our entire business operations.",
+                        "role": "CEO",
+                        "pros": ["Transformed operations", "Complete solution"],
+                        "cons": ["Investment required"]
+                    },
+                    {
+                        "name": "Kevin Martinez",
+                        "rating": 4,
+                        "content": "Excellent enterprise solution. The scalability is outstanding and the integration capabilities are very impressive.",
+                        "role": "CTO",
+                        "pros": ["Outstanding scalability", "Impressive integration"],
+                        "cons": ["Complex implementation"]
+                    }
+                ],
+                "avg_rating": 3.8,
+                "sentiment_score": 0.1
+            },
+            "SAP": {
+                "reviews": [
+                    {
+                        "name": "Benjamin Thompson",
+                        "rating": 4,
+                        "content": "SAP is the industry leader for enterprise solutions. Very powerful and reliable with excellent analytics and reporting capabilities. Perfect for large organizations.",
+                        "role": "Enterprise Architect",
+                        "pros": ["Industry leader", "Powerful and reliable", "Excellent analytics"],
+                        "cons": ["Complex", "Expensive"]
+                    },
+                    {
+                        "name": "Sophia Johnson",
+                        "rating": 3,
+                        "content": "Good enterprise software with comprehensive features. The implementation is complex but the functionality is very powerful. Support is adequate.",
+                        "role": "Business Analyst",
+                        "pros": ["Comprehensive features", "Powerful functionality", "Adequate support"],
+                        "cons": ["Complex implementation", "Steep learning curve"]
+                    },
+                    {
+                        "name": "William Chen",
+                        "rating": 4,
+                        "content": "Very reliable enterprise solution. The scalability is excellent and the integration capabilities are outstanding.",
+                        "role": "Systems Administrator",
+                        "pros": ["Excellent scalability", "Outstanding integration"],
+                        "cons": ["Complex configuration"]
+                    },
+                    {
+                        "name": "Olivia Wilson",
+                        "rating": 5,
+                        "content": "Outstanding enterprise software! SAP has transformed our business processes completely. The automation features are incredible.",
+                        "role": "Operations Manager",
+                        "pros": ["Transformed processes", "Incredible automation"],
+                        "cons": ["Investment required"]
+                    },
+                    {
+                        "name": "James Brown",
+                        "rating": 4,
+                        "content": "Great enterprise solution. The reporting capabilities are impressive and the data analytics are very powerful.",
+                        "role": "Data Analyst",
+                        "pros": ["Impressive reporting", "Powerful analytics"],
+                        "cons": ["Complex setup"]
+                    },
+                    {
+                        "name": "Emma Davis",
+                        "rating": 3,
+                        "content": "Decent enterprise software. The features are comprehensive but the interface could be more user-friendly. Support is adequate.",
+                        "role": "End User",
+                        "pros": ["Comprehensive features", "Adequate support"],
+                        "cons": ["Not very user-friendly"]
+                    },
+                    {
+                        "name": "Lucas Taylor",
+                        "rating": 4,
+                        "content": "Very good enterprise solution. The cloud deployment is excellent and the security features are top-notch.",
+                        "role": "Security Manager",
+                        "pros": ["Excellent cloud deployment", "Top-notch security"],
+                        "cons": ["Advanced features complex"]
+                    },
+                    {
+                        "name": "Ava White",
+                        "rating": 5,
+                        "content": "Fantastic enterprise software! SAP has exceeded our expectations. The customer support is exceptional.",
+                        "role": "Business Owner",
+                        "pros": ["Exceeds expectations", "Exceptional support"],
+                        "cons": ["Premium cost"]
+                    },
+                    {
+                        "name": "Mason Lee",
+                        "rating": 4,
+                        "content": "Great enterprise software. The integration with our existing systems was smooth and the features are comprehensive.",
+                        "role": "IT Manager",
+                        "pros": ["Smooth integration", "Comprehensive features"],
+                        "cons": ["Could be faster"]
+                    },
+                    {
+                        "name": "Isabella Garcia",
+                        "rating": 3,
+                        "content": "Good enterprise solution overall. The basic features work well, but some advanced features could be improved.",
+                        "role": "Business User",
+                        "pros": ["Good basic features"],
+                        "cons": ["Advanced features need work"]
+                    },
+                    {
+                        "name": "Ethan Clark",
+                        "rating": 4,
+                        "content": "Very reliable enterprise software. The backup features are excellent and the disaster recovery is robust.",
+                        "role": "IT Administrator",
+                        "pros": ["Excellent backup", "Robust disaster recovery"],
+                        "cons": ["Complex configuration"]
+                    },
+                    {
+                        "name": "Mia Miller",
+                        "rating": 5,
+                        "content": "Excellent enterprise software! SAP has everything we need and the performance is outstanding.",
+                        "role": "Operations Director",
+                        "pros": ["Complete solution", "Outstanding performance"],
+                        "cons": ["Premium cost"]
+                    },
+                    {
+                        "name": "Noah Smith",
+                        "rating": 4,
+                        "content": "Great enterprise solution. The multi-currency support is excellent and the compliance features are very helpful.",
+                        "role": "International Business Manager",
+                        "pros": ["Excellent multi-currency", "Helpful compliance"],
+                        "cons": ["Complex for small businesses"]
+                    },
+                    {
+                        "name": "Sophia Johnson",
+                        "rating": 4,
+                        "content": "Very good enterprise software. The mobile app is excellent and the cloud features work perfectly for our remote team.",
+                        "role": "Team Lead",
+                        "pros": ["Excellent mobile app", "Perfect cloud features"],
+                        "cons": ["Some mobile limitations"]
+                    },
+                    {
+                        "name": "Liam Brown",
+                        "rating": 5,
+                        "content": "Fantastic enterprise software! SAP has made our business processes so much more efficient.",
+                        "role": "Business Owner",
+                        "pros": ["More efficient processes", "Complete solution"],
+                        "cons": ["Investment required"]
+                    },
+                    {
+                        "name": "Zoe Davis",
+                        "rating": 3,
+                        "content": "Decent enterprise software with good features. The interface could be more intuitive, but it gets the job done.",
+                        "role": "End User",
+                        "pros": ["Good features", "Gets job done"],
+                        "cons": ["Not very intuitive"]
+                    },
+                    {
+                        "name": "Jackson Wilson",
+                        "rating": 4,
+                        "content": "Great enterprise software. The automation features are excellent and save us a lot of time.",
+                        "role": "Process Manager",
+                        "pros": ["Excellent automation", "Time-saving"],
+                        "cons": ["Learning curve"]
+                    },
+                    {
+                        "name": "Aria Anderson",
+                        "rating": 4,
+                        "content": "Very good enterprise solution. The reporting capabilities are impressive and the analytics are very powerful.",
+                        "role": "Business Intelligence Analyst",
+                        "pros": ["Impressive reporting", "Powerful analytics"],
+                        "cons": ["Complex setup"]
+                    },
+                    {
+                        "name": "Grayson Green",
+                        "rating": 5,
+                        "content": "Outstanding enterprise software! SAP has transformed our entire business operations.",
+                        "role": "CEO",
+                        "pros": ["Transformed operations", "Complete solution"],
+                        "cons": ["Investment required"]
+                    },
+                    {
+                        "name": "Layla Martinez",
+                        "rating": 4,
+                        "content": "Excellent enterprise solution. The scalability is outstanding and the integration capabilities are very impressive.",
+                        "role": "CTO",
+                        "pros": ["Outstanding scalability", "Impressive integration"],
+                        "cons": ["Complex implementation"]
+                    }
+                ],
+                "avg_rating": 3.5,
+                "sentiment_score": 0.0
             }
         }
         
